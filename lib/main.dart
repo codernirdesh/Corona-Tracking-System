@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:corona_app_nepal/Myths.dart';
 import 'package:corona_app_nepal/News.dart';
 import 'package:corona_app_nepal/World.dart';
-import 'package:corona_app_nepal/np_test/text.dart';
 import 'package:corona_app_nepal/user.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -101,9 +100,9 @@ class _HomePageState extends State<HomePage> {
                 child: Center(
                   child: Text(
                     "घरै बसौं\nसुरक्षित रहौं",
-                    textAlign: TextAlign.end,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 35.0,
+                      fontSize: 40.0,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
@@ -189,29 +188,7 @@ class _HomePageState extends State<HomePage> {
                             });
                       },
                     ),
-                  ),
-                  Card(
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.security,
-                        size: 30.0,
-                        color: Colors.redAccent,
-                      ),
-                      title: Text(
-                        "URL shortner",
-                        style: TextStyle(
-                          fontSize: 20.0,
-                        ),
-                      ),
-                      onTap: () {
-                        Navigator.pop(context);
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return NpTest();
-                        }));
-                      },
-                    ),
-                  ),
+                  )
                 ],
               ),
             ],
