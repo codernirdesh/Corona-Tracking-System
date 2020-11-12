@@ -19,11 +19,11 @@ class _CovidNepalNewsState extends State<CovidNepalNews> {
         .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
     if (this.mounted) {
       setState(() {
-        print("Please Wait for data!");
+        // print("Please Wait for data!");
         var parsedData = json.decode(utf8.decode(response.bodyBytes));
         // var parsedData = json.decode(response.body);
         news = [parsedData];
-        print("Data Fetched from server Successfully.");
+        // print("Data Fetched from server Successfully.");
       });
       newsLoaded = true;
     } else {}
@@ -33,8 +33,8 @@ class _CovidNepalNewsState extends State<CovidNepalNews> {
   void initState() {
     this.getNews;
     super.initState();
-    print("News Fecthing Started..");
-    print("This app is made by Nirdesh Pokharel.");
+    // print("News Fecthing Started..");
+    // print("This app is made by Nirdesh Pokharel.");
   }
 
   @override
@@ -187,7 +187,7 @@ class _CovidNepalNewsState extends State<CovidNepalNews> {
                         ),
                       ),
                     ),
-                    onTap: (){
+                    onTap: () {
                       launch("${news[0]['data'][index]['url']}");
                     },
                   ),

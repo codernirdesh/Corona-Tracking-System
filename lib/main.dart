@@ -46,11 +46,11 @@ class _HomePageState extends State<HomePage> {
         .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
     if (this.mounted) {
       setState(() {
-        print("Please Wait for data!");
+        // print("Please Wait for data!");
         var parsedData = json.decode(utf8.decode(response.bodyBytes));
         // var parsedData = json.decode(response.body);
         data = [parsedData];
-        print("Data Fetched from server Successfully.");
+        // print("Data Fetched from server Successfully.");
       });
       loaded = true;
     } else {}
@@ -65,11 +65,11 @@ class _HomePageState extends State<HomePage> {
         .get(Uri.encodeFull(worldUrl), headers: {"Accept": "application/json"});
     if (this.mounted) {
       setState(() {
-        print("Please Wait for data!");
+        // print("Please Wait for data!");
         var parsedData = json.decode(utf8.decode(response.bodyBytes));
         // var parsedData = json.decode(response.body);
         worldData = [parsedData];
-        print("Data Fetched from server Successfully.");
+        // print("Data Fetched from server Successfully.");
       });
       worldLoaded = true;
     } else {}
@@ -80,8 +80,8 @@ class _HomePageState extends State<HomePage> {
     this.makeRequest;
     this.worldRequest;
     super.initState();
-    print("Data Fecthing Started..");
-    print("This app is made by Nirdesh Pokharel.");
+    // print("Data Fecthing Started..");
+    // print("This app is made by Nirdesh Pokharel.");
   }
 
   @override
@@ -215,8 +215,12 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: <Widget>[
               loaded
-                  ? NepalData(
-                      data: data,
+                  ? Padding(
+                      padding: const EdgeInsets.only(
+                          top: 18.0, left: 18.0, right: 18.0, bottom: 5.0),
+                      child: NepalData(
+                        data: data,
+                      ),
                     )
                   : Center(
                       child: Column(
@@ -225,8 +229,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
               worldLoaded == true
-                  ? World(
-                      data: worldData,
+                  ? Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: World(
+                        data: worldData,
+                      ),
                     )
                   : Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -237,41 +244,70 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  RaisedButton(
-                    color: Colors.red,
-                    textColor: Colors.white,
-                    elevation: 0.0,
-                    hoverElevation: 5.0,
-                    child: Text("कोरोना सम्बन्धि समाचार"),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) {
-                          return CovidNepalNews();
-                        }),
-                      );
-                    },
+                  Container(
+                    height: 50.0,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: RaisedButton(
+                      color: Colors.red,
+                      textColor: Colors.white,
+                      elevation: 0.0,
+                      hoverElevation: 5.0,
+                      child: Text(
+                        "कोरोना सम्बन्धि समाचार",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              fontSize: 18.0, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) {
+                            return CovidNepalNews();
+                          }),
+                        );
+                      },
+                    ),
                   ),
                   SizedBox(
-                    width: 10.0,
+                    height: 5.0,
                   ),
-                  RaisedButton(
-                    color: Colors.red,
-                    textColor: Colors.white,
-                    elevation: 0.0,
-                    hoverElevation: 5.0,
-                    child: Text("Covid19 Myths"),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) {
-                          return CoronaMyths();
-                        }),
-                      );
-                    },
+                  Container(
+                    height: 50.0,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: RaisedButton(
+                      color: Colors.red,
+                      textColor: Colors.white,
+                      elevation: 0.0,
+                      hoverElevation: 5.0,
+                      child: Text(
+                        "Covid19 Myths",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              fontSize: 18.0, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) {
+                            return CoronaMyths();
+                          }),
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.0,
                   ),
                 ],
               ),

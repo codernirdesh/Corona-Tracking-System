@@ -17,11 +17,11 @@ class _CoronaMythsState extends State<CoronaMyths> {
         .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
     if (this.mounted) {
       setState(() {
-        print("Please Wait for data!");
+        // print("Please Wait for data!");
         var parsedData = json.decode(utf8.decode(response.bodyBytes));
         // var parsedData = json.decode(response.body);
         myths = [parsedData];
-        print("Data Fetched from server Successfully.");
+        // print("Data Fetched from server Successfully.");
       });
       mythLoaded = true;
     } else {}
@@ -31,8 +31,8 @@ class _CoronaMythsState extends State<CoronaMyths> {
   void initState() {
     this.makeRequest;
     super.initState();
-    print("Data Fecthing Started..");
-    print("This app is made by Nirdesh Pokharel.");
+    // print("Data Fecthing Started..");
+    // print("This app is made by Nirdesh Pokharel.");
   }
 
   @override
@@ -43,7 +43,7 @@ class _CoronaMythsState extends State<CoronaMyths> {
       ),
       body: mythLoaded == false
           ? Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Center(
                   child: CircularProgressIndicator(),

@@ -79,7 +79,7 @@ class _NpTestState extends State<NpTest> {
                 child: RaisedButton(
                   onPressed: () {
                     if (longUrl.text.length < 8) {
-                      print("Please Enter a Valid ULL");
+                      // print("Please Enter a Valid ULL");
                     } else {
                       setState(() {
                         showProgressBar = true;
